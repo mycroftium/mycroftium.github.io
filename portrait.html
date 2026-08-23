@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portrait | Mai Zhang</title>
+    <style>
+        /* Base styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Corbel', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Fixed Left Header - Floats independently */
+        .top-header {
+            position: fixed;
+            top: 50px;
+            left: 10vw; /* Sits cleanly in the left whitespace */
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .logo-img { width: 45px; height: auto; }
+        .site-title { font-size: 1.8rem; font-weight: normal; letter-spacing: 0.5px; }
+
+        /* Fixed Left Navigation - Floats independently */
+        .side-nav {
+            position: fixed;
+            top: 50%;
+            left: 10vw; /* Matched with header */
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            z-index: 10;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .side-nav a:hover { color: #888888; }
+        .side-nav a.active { font-weight: bold; text-decoration: underline; }
+
+        /* TRUE Center Content Area */
+        .center-content {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            width: 100vw;
+            height: 100vh; /* Fills the whole screen to find the exact middle */
+        }
+
+        /* Slider takes exactly 61.8vw and is centered by the flexbox above */
+        .slider-container {
+            width: 61.8vw; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hide slides by default */
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Minimalist Navigation Arrows (Previous & Next) */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.3);
+            user-select: none;
+            border: none;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .top-header { left: 20px; top: 20px; }
+            .side-nav { position: static; transform: none; padding-left: 20px; margin-top: 150px; margin-bottom: 50px; }
+            .center-content { height: auto; padding-bottom: 50px; }
+            .slider-container { width: 90vw; } /* Uses more screen on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Left Header -->
+    <header class="top-header">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img">
+        <span class="site-title">Mai Zhang</span>
+    </header>
+
+    <!-- Navigation Links -->
+    <nav class="side-nav">
+        <!-- Notice the active class is on Portrait -->
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html" class="active">Portrait</a>
+        <a href="articles.html">Articles</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Center Content: The Slider -->
+    <main class="center-content">
+        <div class="slider-container">
+
+            <!-- Slide 1 -->
+            <div class="slide">
+                <img src="portrait1.jpg" alt="Portrait Image 1" class="hero-img">
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <img src="portrait2.jpg" alt="Portrait Image 2" class="hero-img">
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <img src="portrait3.jpg" alt="Portrait Image 3" class="hero-img">
+            </div>
+
+            <!-- Arrows -->
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </main>
+
+    <!-- Slider Javascript -->
+    <script>
+        let currentIndex = 0;
+        showSlide(currentIndex);
+
+        function changeSlide(n) {
+            showSlide(currentIndex += n);
+        }
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            
+            if (n >= slides.length) { currentIndex = 0 }
+            if (n < 0) { currentIndex = slides.length - 1 }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slides[currentIndex].style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
