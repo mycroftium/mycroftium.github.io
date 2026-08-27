@@ -181,8 +181,8 @@
             body {
                 display: flex;
                 flex-direction: column;
-                justify-content: center; /* Centers everything vertically */
-                align-items: center; /* Centers everything horizontally */
+                justify-content: flex-start; /* Start elements from the top */
+                align-items: center;
                 height: 100vh; /* Locks screen height to prevent scrolling */
                 overflow: hidden;
             }
@@ -195,25 +195,27 @@
                 position: static;
                 transform: none;
                 padding-left: 0;
-                margin-top: 70px; /* Drops links just below the absolute header */
-                margin-bottom: 20px;
+                margin-top: 85px; /* Spaces links just below the header */
+                margin-bottom: 10px;
                 width: 100%;
                 height: auto;
-                flex-direction: row; /* Forces links to display side-by-side horizontally */
-                justify-content: center;
-                gap: 15px; /* Spaces them out evenly */
+                
+                /* Switch back to vertical column */
+                flex-direction: column; 
+                align-items: center; /* Centers the list on the screen */
+                gap: 12px; /* Tightened gap so it doesn't push the image off-screen */
             }
             .side-nav a {
-                font-size: 1.05rem; /* Slight size reduction for phone screens */
+                font-size: 1.1rem;
             }
             .center-content {
                 height: auto;
                 width: 100%;
-                flex: 1; /* Takes up all remaining screen space */
-                max-height: calc(100vh - 140px); /* Strictly limits height so it stays on screen */
+                flex: 1; /* Fills remaining screen space */
+                max-height: calc(100vh - 200px); /* Strictly limits height so image scales down */
                 display: flex;
                 align-items: center;
-                padding-bottom: 20px;
+                padding-bottom: 15px;
             }
             .slider-container {
                 width: 95vw;
