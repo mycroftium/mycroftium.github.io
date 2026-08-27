@@ -1,2 +1,2 @@
 Mai's personal website
-#maizhang.net
+# maizhang.net
