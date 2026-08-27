@@ -4,37 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portrait | Mai Zhang</title>
-    <link rel="icon" type="image/png" href="stamp.png">
+    <link rel="icon" type="image/png" href="images/stamp.png">
+
+    <!-- Google Fonts: Cabin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* Base styles */
         body, html {
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: 'Corbel', sans-serif;
+            font-family: 'Corbel', 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #ffffff;
             color: #000000;
         }
 
-        /* Fixed Left Header - Floats independently */
+        /* Fixed Left Header (Logo and Name linked to homepage) */
         .top-header {
             position: fixed;
             top: 50px;
-            left: 10vw; /* Sits cleanly in the left whitespace */
+            left: 10vw;
             display: flex;
             align-items: center;
             gap: 15px;
             z-index: 10;
+            text-decoration: none;
+            color: #000000;
         }
 
-        .logo-img { width: 45px; height: auto; }
-        .site-title { font-size: 1.8rem; font-weight: normal; letter-spacing: 0.5px; }
+        .logo-img {
+            width: 45px;
+            height: auto;
+        }
 
-        /* Fixed Left Navigation - Floats independently */
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Fixed Left Navigation */
         .side-nav {
             position: fixed;
             top: 50%;
-            left: 10vw; /* Matched with header */
+            left: 10vw;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -49,21 +65,27 @@
             transition: color 0.3s ease;
         }
 
-        .side-nav a:hover { color: #888888; }
-        .side-nav a.active { font-weight: bold; text-decoration: underline; }
-
-        /* TRUE Center Content Area */
-        .center-content {
-            display: flex;
-            justify-content: center; 
-            align-items: center;
-            width: 100vw;
-            height: 100vh; /* Fills the whole screen to find the exact middle */
+        .side-nav a:hover {
+            color: #888888;
         }
 
-        /* Slider takes exactly 61.8vw and is centered by the flexbox above */
+        .side-nav a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Center Content Area */
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Slider Container */
         .slider-container {
-            width: 61.8vw; 
+            width: 61.8vw;
             position: relative;
             overflow: hidden;
         }
@@ -80,7 +102,7 @@
             display: block;
         }
 
-        /* Minimalist Navigation Arrows (Previous & Next) */
+        /* Minimalist Navigation Arrows */
         .prev, .next {
             cursor: pointer;
             position: absolute;
@@ -90,37 +112,52 @@
             color: white;
             font-weight: bold;
             font-size: 1.5rem;
-            transition: 0.6s ease;
+            transition: background-color 0.3s ease;
             border-radius: 50%;
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0, 0, 0, 0.3);
             user-select: none;
             border: none;
         }
 
         .prev { left: 10px; }
         .next { right: 10px; }
-        .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .top-header { left: 20px; top: 20px; }
-            .side-nav { position: static; transform: none; padding-left: 20px; margin-top: 150px; margin-bottom: 50px; }
-            .center-content { height: auto; padding-bottom: 50px; }
-            .slider-container { width: 90vw; } /* Uses more screen on mobile */
+            .top-header {
+                left: 20px;
+                top: 20px;
+            }
+            .side-nav {
+                position: static;
+                transform: none;
+                padding-left: 20px;
+                margin-top: 150px;
+                margin-bottom: 50px;
+            }
+            .center-content {
+                height: auto;
+                padding-bottom: 50px;
+            }
+            .slider-container {
+                width: 90vw;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Left Header -->
-    <header class="top-header">
-        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img">
+    <!-- Top Left Header linked to maizhang.net -->
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="images/stamp.png" alt="Mai Zhang Seal" class="logo-img">
         <span class="site-title">Mai Zhang</span>
-    </header>
+    </a>
 
     <!-- Navigation Links -->
     <nav class="side-nav">
-        <!-- Notice the active class is on Portrait -->
         <a href="index.html">Pictures</a>
         <a href="portrait.html" class="active">Portrait</a>
         <a href="articles.html">Articles</a>
@@ -133,26 +170,31 @@
 
             <!-- Slide 1 -->
             <div class="slide">
-                <img src="portrait1.jpg" alt="Portrait Image 1" class="hero-img">
+                <img src="images/p1.jpeg" alt="Portrait 1" class="hero-img">
             </div>
             
             <!-- Slide 2 -->
             <div class="slide">
-                <img src="portrait2.jpg" alt="Portrait Image 2" class="hero-img">
+                <img src="images/p2.jpeg" alt="Portrait 2" class="hero-img">
             </div>
             
             <!-- Slide 3 -->
             <div class="slide">
-                <img src="portrait3.jpg" alt="Portrait Image 3" class="hero-img">
+                <img src="images/p3.jpeg" alt="Portrait 3" class="hero-img">
             </div>
 
-            <!-- Arrows -->
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <!-- Slide 4 -->
+            <div class="slide">
+                <img src="images/p4.jpeg" alt="Portrait 4" class="hero-img">
+            </div>
+
+            <!-- Navigation Controls -->
+            <button class="prev" onclick="changeSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)" aria-label="Next Slide">&#10095;</button>
         </div>
     </main>
 
-    <!-- Slider Javascript -->
+    <!-- Slider Logic -->
     <script>
         let currentIndex = 0;
         showSlide(currentIndex);
@@ -164,8 +206,8 @@
         function showSlide(n) {
             let slides = document.getElementsByClassName("slide");
             
-            if (n >= slides.length) { currentIndex = 0 }
-            if (n < 0) { currentIndex = slides.length - 1 }
+            if (n >= slides.length) { currentIndex = 0; }
+            if (n < 0) { currentIndex = slides.length - 1; }
             
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
