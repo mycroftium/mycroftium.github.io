@@ -86,11 +86,6 @@
         .side-nav a:hover {
             color: #888888; 
         }
-        
-        .side-nav a.active {
-            font-weight: bold;
-            text-decoration: underline;
-        }
 
         /* Right Column (Calligraphy Content) */
         .center-content {
@@ -113,7 +108,7 @@
         .hero-img {
             max-width: 350px; 
             height: auto;
-            pointer-events: none; /* Helps block right-clicks on the image itself */
+            pointer-events: none;
         }
 
         .overlay-shield {
@@ -129,40 +124,38 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             body {
-                /* Switch from Grid to Flexbox for mobile */
                 display: flex;
                 flex-direction: column;
-                height: auto;
-                min-height: 100vh;
+                justify-content: center; /* Centers everything vertically on the screen */
+                align-items: center; /* Centers everything horizontally */
+                height: 100vh;
+                overflow: hidden; /* Prevents scrolling so it stays fixed on one page */
             }
             .top-header { 
-                /* Keep fixed in the top left corner */
+                position: absolute; /* Takes header out of the center flow, pinning it to the top left */
                 left: 20px; 
                 top: 20px; 
             }
             .side-nav { 
-                /* Center the links horizontally */
                 padding-left: 0;
-                margin-top: 120px; /* Space below the header */
-                margin-bottom: 40px;
+                margin-top: 0; 
+                margin-bottom: 30px; /* Space between links and the image */
                 width: 100%;
                 height: auto;
-                flex-direction: row; /* Switch from vertical column to horizontal row */
+                flex-direction: row; /* Forces links into a horizontal line */
                 justify-content: center;
-                flex-wrap: wrap;
-                gap: 20px;
+                flex-wrap: nowrap; /* Prevents them from packing into multiple rows */
+                gap: 15px; /* Gives them breathing room */
             }
             .side-nav a {
-                font-size: 1.1rem;
+                font-size: 1.05rem; /* Slightly smaller to ensure all 4 fit on narrow phone screens */
             }
             .center-content { 
-                /* Center the calligraphy image */
                 height: auto;
                 width: 100%;
-                padding-bottom: 50px;
             }
             .hero-img { 
-                max-width: 70vw; /* Scales beautifully on any phone size */
+                max-width: 75vw; /* Keeps the image large but well within the phone screen */
             }
         }
     </style>
@@ -177,7 +170,8 @@
 
     <!-- Navigation Links -->
     <nav class="side-nav">
-        <a href="index.html" class="active">Pictures</a>
+        <!-- Removed the active class here -->
+        <a href="index.html">Pictures</a>
         <a href="portrait.html">Portrait</a>
         <a href="articles.html">Articles</a>
         <a href="#contact">Contact</a>
