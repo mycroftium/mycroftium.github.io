@@ -16,18 +16,18 @@
         html {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Strictly prevents horizontal scrolling */
+            overflow-x: hidden;
         }
 
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
+            height: 100vh;
             font-family: 'Corbel', 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #ffffff;
             color: #000000;
             
-            /* The Golden Ratio: 38.2% left column, 61.8% right column */
+            /* DESKTOP: The Golden Ratio applied horizontally */
             display: grid;
             grid-template-columns: 38.2vw 61.8vw; 
         }
@@ -78,6 +78,137 @@
             justify-content: center;
             align-items: flex-start; 
             padding-left: 22vw;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem; 
+            transition: color 0.3s ease;
+        }
+
+        .side-nav a:hover {
+            color: #888888; 
+        }
+
+        /* Right Column (Calligraphy Content) */
+        .center-content {
+            grid-column: 2; 
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Image Wrapper for the transparent shield */
+        .image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-img {
+            max-width: 350px; 
+            height: auto;
+            pointer-events: none;
+        }
+
+        .overlay-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 2;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                /* MOBILE: The Golden Ratio applied vertically */
+                display: grid;
+                grid-template-columns: 100vw;
+                grid-template-rows: 38.2vh 61.8vh; 
+                height: 100vh;
+                overflow: hidden; 
+            }
+            .top-header { 
+                position: absolute; 
+                left: 20px; 
+                top: 20px; 
+            }
+            .side-nav { 
+                grid-row: 1; /* Takes up exactly the top 38.2% of the screen */
+                padding-left: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                
+                /* Vertically stacked links */
+                flex-direction: column; 
+                justify-content: flex-end; /* Pushes links toward the image */
+                align-items: center; 
+                gap: 12px; 
+                padding-bottom: 20px; /* Space between the links and the 61.8% break line */
+            }
+            .side-nav a {
+                font-size: 1.1rem; 
+            }
+            .center-content { 
+                grid-row: 2; /* Takes up exactly the bottom 61.8% of the screen */
+                height: 100%;
+                width: 100%;
+                padding: 0;
+            }
+            .hero-img { 
+                max-width: 80vw; 
+                max-height: 55vh; /* Prevents the image from overflowing its 61.8% container */
+                object-fit: contain;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Left Header linked to maizhang.net -->
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img" oncontextmenu="return false;">
+        <span class="site-title">Mai Zhang</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="side-nav">
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html">Portrait</a>
+        <a href="articles.html">Articles</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Center Calligraphy -->
+    <main class="center-content">
+        <div class="image-wrapper">
+            <img src="calligraphy.png" alt="Mai Zhang Calligraphy" class="hero-img">
+            <div class="overlay-shield"></div>
+        </div>
+    </main>
+
+    <!-- Script to disable right-click menu on the calligraphy image -->
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.closest('.image-wrapper')) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+
+</body>
+</html>            padding-left: 22vw;
             gap: 40px;
             height: 100%;
         }
