@@ -12,11 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Base styles and Golden Ratio Grid */
-        body, html {
+        /* Base styles */
+        html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            overflow-x: hidden; /* Strictly prevents horizontal scrolling */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
             font-family: 'Corbel', 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #ffffff;
             color: #000000;
@@ -124,38 +130,38 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             body {
-                display: flex;
+                display: flex; /* Overrides the grid */
                 flex-direction: column;
-                justify-content: center; /* Centers everything vertically on the screen */
-                align-items: center; /* Centers everything horizontally */
-                height: 100vh;
-                overflow: hidden; /* Prevents scrolling so it stays fixed on one page */
+                justify-content: center; /* Centers vertically */
+                align-items: center; /* Centers horizontally */
+                height: 100vh; /* Locks screen height */
+                padding-top: 0;
             }
             .top-header { 
-                position: absolute; /* Takes header out of the center flow, pinning it to the top left */
+                position: absolute; /* Takes header out of flow, pinning to top left */
                 left: 20px; 
                 top: 20px; 
             }
             .side-nav { 
                 padding-left: 0;
-                margin-top: 0; 
-                margin-bottom: 30px; /* Space between links and the image */
+                margin-top: 60px; /* Ensures links don't hit the absolute header */
+                margin-bottom: 30px; 
                 width: 100%;
                 height: auto;
-                flex-direction: row; /* Forces links into a horizontal line */
+                flex-direction: row; /* Horizontal layout */
                 justify-content: center;
-                flex-wrap: nowrap; /* Prevents them from packing into multiple rows */
-                gap: 15px; /* Gives them breathing room */
+                gap: 15px; 
             }
             .side-nav a {
-                font-size: 1.05rem; /* Slightly smaller to ensure all 4 fit on narrow phone screens */
+                font-size: 1.05rem; 
             }
             .center-content { 
                 height: auto;
                 width: 100%;
             }
             .hero-img { 
-                max-width: 75vw; /* Keeps the image large but well within the phone screen */
+                max-width: 75vw; /* Perfectly fits phone screens */
+                margin: 0 auto;
             }
         }
     </style>
@@ -170,7 +176,6 @@
 
     <!-- Navigation Links -->
     <nav class="side-nav">
-        <!-- Removed the active class here -->
         <a href="index.html">Pictures</a>
         <a href="portrait.html">Portrait</a>
         <a href="articles.html">Articles</a>
