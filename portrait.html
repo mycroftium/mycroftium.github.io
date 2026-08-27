@@ -179,6 +179,242 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             body {
+                /* MOBILE: The Golden Ratio applied vertically */
+                display: grid;
+                grid-template-columns: 100vw;
+                grid-template-rows: 38.2vh 61.8vh; 
+                height: 100vh;
+                overflow: hidden; 
+            }
+            .top-header {
+                position: absolute;
+                left: 20px;
+                top: 20px;
+            }
+            .side-nav {
+                grid-row: 1; /* Takes exactly the top 38.2% */
+                position: static;
+                transform: none;
+                padding-left: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                
+                /* Vertically stacked links */
+                flex-direction: column; 
+                justify-content: flex-end; /* Pushes links toward the image */
+                align-items: center; 
+                gap: 12px; 
+                padding-bottom: 20px; /* Buffer space before the 61.8% break line */
+            }
+            .side-nav a {
+                font-size: 1.1rem;
+            }
+            .center-content {
+                grid-row: 2; /* Takes exactly the bottom 61.8% */
+                height: 100%;
+                width: 100%;
+                padding: 0;
+            }
+            .slider-container {
+                width: 95vw;
+                height: 55vh; /* Fits comfortably within the 61.8vh space without clipping */
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Left Header linked to maizhang.net -->
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img" oncontextmenu="return false;">
+        <span class="site-title">Mai Zhang</span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="side-nav">
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html" class="active">Portrait</a>
+        <a href="articles.html">Articles</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Center Content: The Protected Slider -->
+    <main class="center-content">
+        <div class="slider-container" id="sliderContainer">
+
+            <!-- Slide 1 -->
+            <div class="slide">
+                <div class="image-wrapper">
+                    <img src="images/p1.jpeg" alt="Portrait 1" class="hero-img">
+                    <div class="overlay-shield"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide">
+                <div class="image-wrapper">
+                    <img src="images/p2.jpeg" alt="Portrait 2" class="hero-img">
+                    <div class="overlay-shield"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide">
+                <div class="image-wrapper">
+                    <img src="images/p3.jpeg" alt="Portrait 3" class="hero-img">
+                    <div class="overlay-shield"></div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="slide">
+                <div class="image-wrapper">
+                    <img src="images/p4.jpeg" alt="Portrait 4" class="hero-img">
+                    <div class="overlay-shield"></div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <button class="prev" onclick="changeSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)" aria-label="Next Slide">&#10095;</button>
+        </div>
+    </main>
+
+    <!-- Slider & Protection Logic -->
+    <script>
+        let currentIndex = 0;
+        showSlide(currentIndex);
+
+        function changeSlide(n) {
+            showSlide(currentIndex += n);
+        }
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            
+            if (n >= slides.length) { currentIndex = 0; }
+            if (n < 0) { currentIndex = slides.length - 1; }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slides[currentIndex].style.display = "block";
+        }
+
+        // Disable right-click across all images and the slider container
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.closest('.slider-container')) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+
+</body>
+</html>
+        .side-nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .side-nav a:hover {
+            color: #888888;
+        }
+
+        .side-nav a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Center Content Area */
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            width: 61.8vw;
+            height: 90vh; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* Hide slides by default */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Image Wrapper */
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ensure images scale correctly */
+        .hero-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; 
+            display: block;
+            pointer-events: none;
+        }
+
+        .overlay-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 2;
+        }
+
+        /* Clean arrows */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000000;
+            font-weight: normal;
+            font-size: 2.5rem;
+            background-color: transparent;
+            border: none;
+            z-index: 5;
+            transition: color 0.3s ease;
+            padding: 10px;
+        }
+
+        .prev { left: 0; }
+        .next { right: 0; }
+        
+        .prev:hover, .next:hover {
+            color: #888888;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start; /* Start elements from the top */
