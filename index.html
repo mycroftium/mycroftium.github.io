@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mai Zhang</title>
     <link rel="icon" type="image/png" href="stamp.png">
+
+    <!-- Google Fonts: Cabin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* Base styles and Golden Ratio Grid */
         body, html {
             margin: 0;
             padding: 0;
             height: 100vh;
-            font-family: 'Corbel', sans-serif;
+            /* Prioritizes Corbel if installed, falls back to Cabin for all other visitors */
+            font-family: 'Corbel', 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background-color: #ffffff;
             color: #000000;
             
@@ -24,7 +31,7 @@
         .top-header {
             position: fixed;
             top: 50px;
-            left: 22vw; /* Increased from 12vw to push it closer to the center */
+            left: 22vw;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -38,7 +45,7 @@
 
         .site-title {
             font-size: 1.8rem; 
-            font-weight: normal; 
+            font-weight: 400; 
             letter-spacing: 0.5px;
         }
 
@@ -49,7 +56,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: flex-start; 
-            padding-left: 22vw; /* Matches the header to keep the vertical line perfectly straight */
+            padding-left: 22vw;
             gap: 40px;
             height: 100%;
         }
@@ -89,13 +96,13 @@
                 left: 20px; 
                 top: 20px; 
             }
-            .side-nav {
+            .side-nav { 
                 padding-left: 20px;
                 height: auto;
                 margin-top: 150px;
                 margin-bottom: 50px;
             }
-            .center-content {
+            .center-content { 
                 height: auto;
             }
             .hero-img { 
@@ -113,7 +120,7 @@
     </header>
 
     <!-- Navigation Links -->
-   <nav class="side-nav">
+    <nav class="side-nav">
         <a href="index.html">Pictures</a>
         <a href="portrait.html">Portrait</a>
         <a href="articles.html">Articles</a>
