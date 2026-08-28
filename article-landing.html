@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing | Mai Zhang</title>
+    <link rel="icon" type="image/png" href="stamp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html { margin: 0; padding: 0; overflow: hidden; }
+        body {
+            margin: 0; padding: 0; height: 100vh;
+            font-family: 'Corbel', 'Cabin', sans-serif;
+            background-color: #ffffff; color: #000000;
+            display: grid; grid-template-columns: 38.2vw 61.8vw;
+        }
+
+        /* Anti-download base rules */
+        img {
+            -webkit-user-drag: none; user-drag: none;
+            user-select: none; -webkit-touch-callout: none;
+        }
+
+        /* Fixed Navigation Layer */
+        .top-header {
+            position: fixed; top: 50px; left: 22vw;
+            display: flex; align-items: center; gap: 15px;
+            z-index: 10; text-decoration: none; color: #000000;
+        }
+        .logo-img { width: 45px; height: auto; }
+        .site-title { font-size: 1.8rem; font-weight: 400; letter-spacing: 0.5px; }
+
+        .side-nav {
+            grid-column: 1; display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-start;
+            padding-left: 22vw; gap: 40px; height: 100%;
+        }
+        .side-nav a { text-decoration: none; color: #000000; font-size: 1.2rem; transition: color 0.3s ease; }
+        .side-nav a:hover { color: #888888; }
+        .side-nav a.active { font-weight: bold; text-decoration: underline; }
+
+        /* Article Reading Area (Scrollable) */
+        .center-content {
+            grid-column: 2; height: 100vh; overflow-y: auto;
+            padding: 80px 10% 80px 5%; box-sizing: border-box;
+            position: relative;
+        }
+        .article-body { max-width: 650px; line-height: 1.8; font-size: 1.1rem; }
+        .article-title { font-size: 2rem; font-weight: 600; margin-bottom: 40px; }
+        
+        .image-wrapper { position: relative; margin: 40px 0; width: 100%; }
+        .article-image { width: 100%; height: auto; display: block; pointer-events: none; border-radius: 4px; }
+        .overlay-shield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 2; }
+
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            body { display: grid; grid-template-columns: 100vw; grid-template-rows: 38.2vh 61.8vh; height: 100vh; overflow: hidden; }
+            .top-header { position: absolute; left: 20px; top: 20px; }
+            .side-nav {
+                grid-row: 1; padding-left: 0; margin: 0; width: 100%; height: 100%;
+                flex-direction: column; justify-content: flex-end; align-items: center; gap: 12px; padding-bottom: 20px;
+            }
+            .center-content {
+                grid-row: 2; height: 100%; width: 100%;
+                padding: 30px 20px 80px 20px;
+            }
+            .article-title { font-size: 1.6rem; }
+            .article-body { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img" oncontextmenu="return false;">
+        <span class="site-title">Mai Zhang</span>
+    </a>
+
+    <nav class="side-nav">
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html">Portrait</a>
+        <a href="articles.html" class="active">Articles</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="center-content">
+        <div class="article-body">
+            <h1 class="article-title">Landing: Fishermen who can't fish anymore[cite: 1]</h1>
+            
+            <p>Mr. Yao, a 53-years-old resident of Shendi Town, had been working as a fisherman on the Xin An River for most of his life.[cite: 1] However, he lost his job 3 years ago due to a policy announced by Mr. Xi in 2020.[cite: 1]</p>
+            
+            <div class="image-wrapper">
+                <img src="images/landing1.jpg" alt="Fishermen conversing" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>"We fully support this policy since it would certainly improve the environment," said Mr. Yao.[cite: 1] "However, what about our livelihood?"[cite: 1]</p>
+            
+            <p>Mr. Yao, original from the Xin An River area, has been fishing throughout his life.[cite: 1] He and his family used to depend on the rich aquatic animal resource of the Xin An River to support their family.[cite: 1] Before the Chinese Ministry of Agricultural and Rural Affairs announced a 10-year ban on all fishing activities in the Yangtze River area, Mr. Yao and his family used to earn around 70,000 RMB (approximately 10,000 USD) per year solely from fishing.[cite: 1] This income, combined with other source of income such as farming and seasonal work in She Xian town (the nearest town to Yao's house), Yao's family could live a comfortable life while also supporting their son's education.[cite: 1]</p>
+
+            <div class="image-wrapper">
+                <img src="images/landing2.jpg" alt="Mountain scenery" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Three years after Yao lost his job as a fisherman, he is employed as a sailor working for a local tourism company.[cite: 1] When talking about this major shift that occurred in his 50s, Yao fell into silence.[cite: 1] The tourism boat company pays him approximately 25,000 RMB per year (3,500 USD).[cite: 1] Such a sharp decrease in income made it difficult for him to keep up with the rapid changes that is occurring in Chinese society, said Mr. Yao.[cite: 1]</p>
+
+            <div class="image-wrapper">
+                <img src="images/landing3.jpg" alt="Boat interior" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Yao's family has been living in the Xin An River area for generations.[cite: 1] His parents, and most of the people he knows, depend on the Xin An River for both its fishery resources and its gorgeous scenery.[cite: 1] Mr. Yao was satisfied when talking about his past life.[cite: 1] "I raised my son, and now he is working in She Xian town, depend on himself. Everything has been going quite well."[cite: 1]</p>
+
+            <div class="image-wrapper">
+                <img src="images/landing4.jpg" alt="Xin An River" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Such life ended in 2020, when the Chinese government took President's Yangtze River protection policies seriously.[cite: 1] Dated back to 2016, Xi argued in the Symposiums on Promoting the Development of the Yangtze River Economic Belt that China should coordinate environmental conservation and "avoid excessive development".[cite: 1] This announcement set the tone for the complete ban on fishing in the Yangtze River.[cite: 1] 4 years later, China banned all fishing activities near the Yangtze Riverbank.[cite: 1] Mr. Yao's life was also changed since then.[cite: 1]</p>
+
+            <div class="image-wrapper">
+                <img src="images/landing5.jpg" alt="Former fisherman" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Chinese government has announced plenty of policies which aimed to help fisherman getting used to a life after landing.[cite: 1] For She Xian town, all the fishermen received subsidies for quitting fishing at once.[cite: 1] Afterwards, fishermen were recruited and offered potential job positions in She Xian Town.[cite: 1] However, Mr. Yao and many others didn't take those offers.[cite: 1] "I wanted to stay with my family in my hometown," Mr. Yao said.[cite: 1] As for those who are above 60, they were considered "too old" by the employers.[cite: 1]</p>
+            
+            <p>Local government would regularly monitor the living conditions of former fishermen.[cite: 1] However, due to the calculation method used by the Chinese social welfare system, individuals must either have sufficient funds or a certain number of years paying basic social insurance.[cite: 1] As a result, those who have worked as fishermen for the majority for their lives may not have enough money in their pension account by the time they retire (55 for female and 60 for male, in general).[cite: 1] For Mr. Yao, even though the tourism company contributes to part of his pension, he still won't meet the pension threshold when he retires.[cite: 1]</p>
+
+            <div class="image-wrapper">
+                <img src="images/landing6.jpg" alt="Tourism boat" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Now Mr. Yao works almost every day during summer, from 7 am to 6 pm.[cite: 1] His duty is to assist in running the boat, which is no problem for a fisherman who has been living with water his entire life.[cite: 1] Glancing out from the window at the stunning scenery of Xin An River, Mr. Yao said, "Taking care of the environment is certainly a good thing... but who will take care of us?"[cite: 1]</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.closest('.image-wrapper')) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+</body>
+</html>
