@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Mai Zhang</title>
+    <link rel="icon" type="image/png" href="stamp.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base styles */
+        html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            font-family: 'Corbel', 'Cabin', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            
+            /* DESKTOP: Reinstate the Golden Ratio grid for the navigation menu */
+            display: grid;
+            grid-template-columns: 38.2vw 61.8vw; 
+        }
+
+        /* Anti-download base rules */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        /* Top Left Header */
+        .top-header {
+            position: fixed;
+            top: 50px;
+            left: 22vw;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10;
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: auto;
+        }
+
+        .site-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Fixed Left Navigation */
+        .side-nav {
+            grid-column: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; 
+            padding-left: 22vw;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 1.2rem; 
+            transition: color 0.3s ease;
+        }
+
+        .side-nav a:hover {
+            color: #888888; 
+        }
+
+        .side-nav a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Contact Information Layout - Kept intact on desktop */
+        .contact-info {
+            position: absolute;
+            top: 180px; 
+            left: calc(22vw + 60px); 
+            display: flex;
+            flex-direction: column;
+            gap: 40px; 
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #555555;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #000000;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                /* MOBILE: The Golden Ratio applied vertically */
+                display: grid;
+                grid-template-columns: 100vw;
+                grid-template-rows: 38.2vh 61.8vh; 
+                height: 100vh;
+                overflow: hidden; 
+            }
+            .top-header { 
+                position: absolute; 
+                left: 20px; 
+                top: 20px; 
+            }
+            .side-nav { 
+                grid-row: 1; 
+                padding-left: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                flex-direction: column; 
+                justify-content: flex-end; 
+                align-items: center; 
+                gap: 12px; 
+                padding-bottom: 20px; 
+            }
+            .side-nav a {
+                font-size: 1.1rem; 
+            }
+            /* Shift contact info into the bottom content block for mobile to prevent overlap */
+            .contact-info {
+                position: static; 
+                grid-row: 2; 
+                display: flex;
+                align-items: center; 
+                justify-content: flex-start;
+                padding-top: 40px; 
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img" oncontextmenu="return false;">
+        <span class="site-title">Mai Zhang</span>
+    </a>
+
+    <nav class="side-nav">
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html">Portrait</a>
+        <a href="articles.html">Articles</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <div class="contact-info">
+        <a href="mailto:maizhangcs@gmail.com">maizhangcs@gmail.com</a>
+        <a href="https://instagram.com/_zhangmai_" target="_blank" rel="noopener noreferrer">@_zhangmai_</a>
+    </div>
+
+</body>
+</html>
