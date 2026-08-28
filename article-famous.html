@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young and Famous | Mai Zhang</title>
+    <link rel="icon" type="image/png" href="stamp.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html { margin: 0; padding: 0; overflow: hidden; }
+        body {
+            margin: 0; padding: 0; height: 100vh;
+            font-family: 'Corbel', 'Cabin', sans-serif;
+            background-color: #ffffff; color: #000000;
+            display: grid; grid-template-columns: 38.2vw 61.8vw;
+        }
+
+        img {
+            -webkit-user-drag: none; user-drag: none;
+            user-select: none; -webkit-touch-callout: none;
+        }
+
+        .top-header {
+            position: fixed; top: 50px; left: 22vw;
+            display: flex; align-items: center; gap: 15px;
+            z-index: 10; text-decoration: none; color: #000000;
+        }
+        .logo-img { width: 45px; height: auto; }
+        .site-title { font-size: 1.8rem; font-weight: 400; letter-spacing: 0.5px; }
+
+        .side-nav {
+            grid-column: 1; display: flex; flex-direction: column;
+            justify-content: center; align-items: flex-start;
+            padding-left: 22vw; gap: 40px; height: 100%;
+        }
+        .side-nav a { text-decoration: none; color: #000000; font-size: 1.2rem; transition: color 0.3s ease; }
+        .side-nav a:hover { color: #888888; }
+        .side-nav a.active { font-weight: bold; text-decoration: underline; }
+
+        .center-content {
+            grid-column: 2; height: 100vh; overflow-y: auto;
+            padding: 80px 10% 80px 5%; box-sizing: border-box; position: relative;
+        }
+        .article-body { max-width: 650px; line-height: 1.8; font-size: 1.1rem; }
+        .article-title { font-size: 2rem; font-weight: 600; margin-bottom: 10px; }
+        .article-subtitle { font-size: 1.2rem; font-style: italic; color: #555; margin-bottom: 40px; }
+        
+        .image-wrapper { position: relative; margin: 40px 0; width: 100%; }
+        .article-image { width: 100%; height: auto; display: block; pointer-events: none; border-radius: 4px; }
+        .overlay-shield { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; z-index: 2; }
+
+        @media (max-width: 768px) {
+            body { display: grid; grid-template-columns: 100vw; grid-template-rows: 38.2vh 61.8vh; height: 100vh; overflow: hidden; }
+            .top-header { position: absolute; left: 20px; top: 20px; }
+            .side-nav {
+                grid-row: 1; padding-left: 0; margin: 0; width: 100%; height: 100%;
+                flex-direction: column; justify-content: flex-end; align-items: center; gap: 12px; padding-bottom: 20px;
+            }
+            .center-content { grid-row: 2; height: 100%; width: 100%; padding: 30px 20px 80px 20px; }
+            .article-title { font-size: 1.6rem; }
+            .article-subtitle { font-size: 1.1rem; }
+            .article-body { font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://maizhang.net" class="top-header" aria-label="Mai Zhang Home">
+        <img src="stamp.png" alt="Mai Zhang Seal" class="logo-img" oncontextmenu="return false;">
+        <span class="site-title">Mai Zhang</span>
+    </a>
+
+    <nav class="side-nav">
+        <a href="index.html">Pictures</a>
+        <a href="portrait.html">Portrait</a>
+        <a href="articles.html" class="active">Articles</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main class="center-content">
+        <div class="article-body">
+            <h1 class="article-title">Young and Famous[cite: 2]</h1>
+            <p class="article-subtitle">University freshman, DouYin celebrity and dancing studio owner[cite: 2]</p>
+            
+            <p>"My biggest concern now is how to turn fame into wealth," Jessica, a Tik Tok influencer with 500,000 followers, dance studio founder and first-year journalism student at Hong Kong Baptist University said.[cite: 2]</p>
+            
+            <div class="image-wrapper">
+                <img src="images/famous1.jpg" alt="Building hallway" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>She started recording videos in 2018 when DouYin (the Chinese version of Tik Tok) was still on the rise.[cite: 2] "At that time, DouYin was still attracting video bloggers to the site and the focus was relatively focused on dancing and custom show, and my followers rapidly grew during that time", Jessica said.[cite: 2] "The identity of Hong Kong people might still bring traffic at that time, but it changed after 2019."[cite: 2]</p>
+
+            <div class="image-wrapper">
+                <img src="images/famous2.jpg" alt="Using social media" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Since her follower growth has been a bit low lately, Jessica checks her follower count regularly.[cite: 2] Many bloggers believe that DouYin modified its video recommendation algorithm after the Hong Kong social movement, which had a huge impact on small and medium-sized bloggers like Jessica, who lives in Hong Kong.[cite: 2] At the same time, as DouYin's active users quickly increased, more and more Multi-Channel Network (MCN) companies moved into DouYin and partnered with ByteDance (DouYin's parent company), constantly squeezing the survival space of small influencers.[cite: 2]</p>
+
+            <div class="image-wrapper">
+                <img src="images/famous3.jpg" alt="Recording a video" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>Jessica receives messages from fans every day asking her to update her videos.[cite: 2] In response to this trend, Jessica rented a dance studio near Kwai Hing district during the summer before entering university in 2021 and used her fame at DouYin to attract dancing students.[cite: 2]</p>
+
+            <div class="image-wrapper">
+                <img src="images/famous4.jpg" alt="Dance studio interior" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>She completed the entire renovation of the studio herself, for which she spent $20,000.[cite: 2] It was not easy to recruit students during the COVID-19 pandemic.[cite: 2] However, she still managed to keep the studio running.[cite: 2] "Making videos and dancing are things I love and won't change because of outside impact. Now it's getting harder and harder to do short videos, but I'm also actively exploring other social platforms and trying to finish my studies at university," Jessica said in her studio.[cite: 2]</p>
+            
+            <div class="image-wrapper">
+                <img src="images/famous5.jpg" alt="Jessica dancing" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+
+            <p>The building where Jessica's dance studio is located is heavily impacted by the fifth wave of the pandemic in Hong Kong, and as a result there are far fewer people visiting the studio.[cite: 2]</p>
+
+            <div class="image-wrapper">
+                <img src="images/famous6.jpg" alt="Studio exterior" class="article-image">
+                <div class="overlay-shield"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.closest('.image-wrapper')) {
+                e.preventDefault();
+            }
+        }, false);
+    </script>
+</body>
+</html>
